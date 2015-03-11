@@ -1,0 +1,54 @@
+html {
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  padding: 0;
+  margin: 0;
+  background: #1235b7;
+  font-family: 'Ubuntu', sans-serif;
+}
+
+nav {
+  background: #0381e8;
+  margin: 0;
+  padding: 5px 150px;
+  font-size: .8em;
+  text-align: right;
+  text-transform: uppercase;
+}
+
+header {
+  width: 80%;
+  margin: 10px auto 0 auto;
+  padding: 0;
+  background-image: url('denver.png');
+  background-repeat: no-repeat;
+  background-position: bottom right;
+}
+
+.main {
+  width: 80%;
+  min-height: 400px;
+  margin: -4px auto 0 auto;
+  background-image: url('logo_sidebar.png');
+  background-repeat: no-repeat;
+  background-position: top left;
+}
+
+.content {
+  background: #fff;
+  border: 2px solid #FF1A14;
+  margin-left: 300px;
+  margin-bottom: 50px;
+  padding: 20px;
+  border-radius: 5px;
+  -webkit-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
+  -moz-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
+  box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
+}
+
+footer {
+  background: #0381e8;
+}
