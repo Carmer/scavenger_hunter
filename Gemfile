@@ -12,6 +12,7 @@ gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'dotenv-rails'
 gem 'pry-rails'
+gem 'devise'
 
 
 group :development, :test do
@@ -24,4 +25,3 @@ group :development, :test do
   gem 'spring-commands-rspec'
   gem 'factory_girl_rails'
 end
-
