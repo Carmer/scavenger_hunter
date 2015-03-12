@@ -1,0 +1,13 @@
+<% if @teams.empty? %>
+  <h1>Ain't got no Teams, Dude.</h1>
+  <h1>Just gotta Deal I guess</h1>
+<% else %>
+  <h2>Teams:</h2>
+
+  <% @teams.each do |team| %>
+  <!-- should this page only be visible to the admin user? -->
+    <p>Team Number: <%= link_to "#{team.team_number}", team_path(team) %></p>
+    <p>Path: <%= team.path %></p>
+    <p>Hunt ID: <%= team.hunt_id %></p>
+  <% end %>
+<% end %>
