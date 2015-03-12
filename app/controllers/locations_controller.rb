@@ -1,5 +1,5 @@
 class LocationsController < ApplicationController
-before_action :set_location, only: [:show, :update, :destroy, :edit]
+  before_action :set_location, only: [:show, :update, :destroy, :edit]
 
   def index
     @locations = current_user.locations
