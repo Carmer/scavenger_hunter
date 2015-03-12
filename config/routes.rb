@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   devise_for :users, controllers: { sessions: "users/sessions" }
 
   resources :locations
-  resources :teams
-  resources :hunts
+  resources :hunts do
+    resources :teams
+  end
 end

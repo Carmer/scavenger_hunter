@@ -1,7 +1,7 @@
 class TeamsController < ApplicationController
 
   def index
-    @teams = Team.all
+    @teams = Team.where(hunt_id: params[:hunt_id])
   end
 
   def new

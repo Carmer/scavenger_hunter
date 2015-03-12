@@ -5,8 +5,7 @@
   <h2>Teams:</h2>
 
   <% @teams.each do |team| %>
-  <!-- should this page only be visible to the admin user? -->
-    <p>Team Number: <%= link_to "#{team.team_number}", team_path(team) %></p>
+    <p>Team Number: <%= link_to "#{team.team_number}", hunt_team_path(id: team, hunt_id: params[:hunt_id]) %></p>
     <p>Path: <%= team.path %></p>
     <p>Hunt ID: <%= team.hunt_id %></p>
   <% end %>
