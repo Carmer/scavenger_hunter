@@ -12,8 +12,9 @@ class HuntsController < ApplicationController
   end
 
   def create
-    create_with_teams
-
+    if create_with_teams
+      redirect_to hunt_path(@hunt), notice: "well done"
+    end
   end
 
   def edit
@@ -39,9 +40,9 @@ class HuntsController < ApplicationController
   private
 
   def create_with_teams
-    hunt.transaction do
-      hunt = current_user.hunts.create(hunt_params)
-      hunt.make_teams(params[:number_of_teams])
+    Hunt.transaction do
+      @hunt = current_user.hunts.create(hunt_params)
+      @hunt.make_teams(params[:number_of_teams].to_i)
     end
   end
 
