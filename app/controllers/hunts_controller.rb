@@ -1,6 +1,7 @@
 class HuntsController < ApplicationController
   before_action :set_hunt, only: [:show, :edit, :destroy, :update]
 
+
   def index
     @hunts = current_user.hunts
   end
@@ -11,16 +12,8 @@ class HuntsController < ApplicationController
   end
 
   def create
-    binding.pry
-    @hunt = current_user.hunts.new(hunt_params)
-    if @hunt.save
-      redirect_to hunts_path, notice: "Hunt created."
-    else
-      render :new, notice: "Hunt not created. Try again."
-    end
-  end
+    create_with_teams
 
-  def show
   end
 
   def edit
@@ -44,6 +37,13 @@ class HuntsController < ApplicationController
   end
 
   private
+
+  def create_with_teams
+    hunt.transaction do
+      hunt = current_user.hunts.create(hunt_params)
+      hunt.make_teams(params[:number_of_teams])
+    end
+  end
 
   def set_hunt
     @hunt = Hunt.find(params[:id])
