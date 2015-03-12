@@ -1,0 +1,8 @@
+<h2>Location Information:</h2>
+
+<p>Name: <%= @location.name.titleize %></p>
+<p>Clue: <%= @location.clue %></p>
+<p>Coordinates: <%= @location.latitude %>, <%= @location.longitude %></p>
+
+<%= link_to "Edit", edit_location_path %> |
+<%= link_to "Delete", location_path, method: :delete %>

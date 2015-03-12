@@ -1,0 +1,29 @@
+<%= form_for @location do |f| %>
+  <% if @location.errors.any? %>
+    <div id="errors">
+      <h2><%= pluralize(@location.errors.count, 'error') %> occurred:</h2>
+        <ul>
+          <% @location.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <p>All fields are required</p>
+
+    <p><%= label_tag :name, 'Name' %></br>
+    <%= f.text_field :name %></p>
+
+    <p><%= label_tag :clue, 'Clue' %></br>
+    <p><small>Please enter a short clue for this location.</small><br>
+    <%= f.text_area :clue %></p>
+
+    <p><%= label_tag :latitude, 'Latitude' %></br>
+    <%= f.text_field :latitude %></p>
+
+    <p><%= label_tag :longitude, 'Longitude' %></br>
+    <%= f.text_field :longitude %></p>
+
+    <button type="submit">Submit</button>
+<% end %>

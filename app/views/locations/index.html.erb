@@ -1,0 +1,8 @@
+<h2>Locations:</h2>
+
+<% @locations.each do |location| %>
+<!-- should this page only be visible to the admin user? -->
+  <p>Name: <%= link_to "#{location.name.titleize}", location_path(location) %></p>
+  <p>Clue: <%= location.clue %></p>
+  <p>Coordinates: <%= location.latitude %>, <%= location.longitude %></p>
+<% end %>
