@@ -10,6 +10,10 @@ body {
   font-family: 'Ubuntu', sans-serif;
 }
 
+a {
+  text-decoration: none;
+}
+
 nav {
   background: #0381e8;
   margin: 0;
@@ -49,6 +53,17 @@ header {
   box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
 }
 
-footer {
-  background: #0381e8;
+.note {
+  color: #b8b8b8;
+  font-size:.8em;
+  text-transform: uppercase;
+}
+
+.hunt, .locations {
+  border-bottom: 1px solid #0381e8;
+}
+
+.hunt-locations {
+  font-size: .9em;
+  color: #b8b8b8;
 }
