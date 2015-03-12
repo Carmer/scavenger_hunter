@@ -4,4 +4,5 @@ Rails.application.routes.draw do
 
   resources :locations
   resources :teams
+  resources :hunts
 end
