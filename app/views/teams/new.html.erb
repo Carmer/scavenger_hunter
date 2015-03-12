@@ -1,0 +1,25 @@
+<%= form_for @team do |f| %>
+  <% if @team.errors.any? %>
+    <div id="errors">
+      <h2><%= pluralize(@team.errors.count, 'error') %> occurred:</h2>
+        <ul>
+          <% @team.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <p>All fields are required</p>
+
+    <p><%= label_tag :team_number, 'team_number' %></br>
+    <%= f.text_field :team_number %></p>
+
+    <p><%= label_tag :hunt_id, 'hunt_id' %></br>
+    <%= f.text_area :hunt_id %></p>
+
+    <p><%= label_tag :path, 'path' %></br>
+    <%= f.text_field :path %></p>
+
+    <button type="submit">Submit</button>
+<% end %>
