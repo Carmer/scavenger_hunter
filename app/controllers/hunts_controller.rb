@@ -11,6 +11,7 @@ class HuntsController < ApplicationController
   end
 
   def create
+    binding.pry
     @hunt = current_user.hunts.new(hunt_params)
     if @hunt.save
       redirect_to hunts_path, notice: "Hunt created."
