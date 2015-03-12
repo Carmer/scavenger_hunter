@@ -1,0 +1,25 @@
+<%= form_for @hunt do |f| %>
+  <% if @hunt.errors.any? %>
+    <div id="errors">
+      <h2><%= pluralize(@hunt.errors.count, 'error') %> occurred:</h2>
+        <ul>
+          <% @hunt.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <p>All fields are required</p>
+
+    <p><%= label_tag :name, 'Name' %></br>
+    <%= f.text_field :name %></p>
+
+    <p><%= label_tag :master_path, 'Clue' %></br>
+    <p><small>Please select your path.</small><br>
+    <p>1<%= select_tag 'hunt[master_path][]', options_for_select(@locations.map { |location| [location.name, location.id]}) %></p>
+    <p>2<%= select_tag 'hunt[master_path][]', options_for_select(@locations.map { |location| [location.name, location.id]}) %></p>
+    <p>3<%= select_tag 'hunt[master_path][]', options_for_select(@locations.map { |location| [location.name, location.id]}) %></p>
+
+    <button type="submit">Submit</button>
+<% end %>
