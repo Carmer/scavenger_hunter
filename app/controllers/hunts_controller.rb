@@ -1,0 +1,2 @@
+class HuntsController < ApplicationController
+end
