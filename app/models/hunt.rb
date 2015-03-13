@@ -21,4 +21,5 @@ class Hunt < ActiveRecord::Base
     Random.rand(20).times { reversed_path.rotate! }
     reversed_path
   end
+
 end

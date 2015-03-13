@@ -1,5 +1,11 @@
-<h2> <%= @hunt.name %></h2>
+<h2> <%= @hunt.name.titleize %></h2>
 <h3>Master Path:</h3>
 <% @hunt.locations.each_with_index do |location, i| %>
-  <p> <%= i %>: <%= link_to location.name %></p>
+  <p> <%= (i + 1) %>: <%= link_to location.name %></p>
 <% end %>
+
+<p class="note">
+<%= link_to "Edit", edit_hunt_path %> |
+<%= link_to "Delete", hunt_path, method: :delete %> |
+<%= link_to "All locations", locations_path %> |
+<%= link_to "All hunts", hunts_path %></p>
