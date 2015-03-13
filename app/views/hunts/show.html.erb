@@ -1,7 +1,8 @@
-<h2> <%= @hunt.name.titleize %></h2>
-<h3>Master Path:</h3>
+<h2>Hunt Information</h2>
+<h3>Name: <%= @hunt.name.titleize %></h3>
+<h4>Master Path:</h4>
 <% @hunt.locations.each_with_index do |location, i| %>
-  <p> <%= (i + 1) %>: <%= link_to location.name %></p>
+  <p> <%= (i + 1) %>: <%= link_to "#{location.name}", location_path(location) %></p>
 <% end %>
 
 <p class="note">

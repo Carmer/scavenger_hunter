@@ -1,17 +1,16 @@
-<h2>Hunts:</h2>
+<h2>Hunts</h2>
 
 <% @hunts.each do |hunt| %>
   <div class="hunt">
   <h3>Name: <%= link_to "#{hunt.name.titleize}", hunt_path(hunt) %></h3>
-  <p class="hunt-locations">Locations in this Hunt: <% hunt.locations.each do |location| %>
+  <p class="hunt-locations">Locations in this hunt: <% hunt.locations.each do |location| %>
     <%= link_to "#{location.name}", location_path(location) %> |
   <% end %></p>
   <p class="note">
   <%= link_to "Edit", edit_hunt_path(hunt) %> |
-  <%= link_to "Delete", hunt_path(hunt), method: :delete %> |
-  <%= link_to "All locations", locations_path %> |
-  <%= link_to "All hunts", hunts_path %></p>
+  <%= link_to "Delete", hunt_path(hunt), method: :delete %></p>
   </div>
 <% end %>
 
-<p class="note"><%= link_to "Create New Hunt", new_hunt_path %></p>
+<p class="small-orange-button"><%= link_to "Create New Hunt", new_hunt_path %></p>
+<p class="note"><%= link_to "Home", root_path %> | <%= link_to "Locations", locations_path %></p>
