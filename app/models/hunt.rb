@@ -17,8 +17,8 @@ class Hunt < ActiveRecord::Base
   private
 
   def generate_team_path
-    Random.rand(1..2) == 1 ? reversed_path = master_path.reverse : reversed_path = master_path
-    Random.rand(20).times { reversed_path.rotate! }
+    rand(2) == 1 ? reversed_path = master_path.reverse : reversed_path = master_path
+    rand(20).times { reversed_path.rotate! }
     reversed_path
   end
 
