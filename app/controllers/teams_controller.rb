@@ -1,20 +1,8 @@
 class TeamsController < ApplicationController
+  before_action :set_hunt
 
   def index
-    @teams = Team.find_by(hunt_id: params[:hunt_id])
-  end
-
-  def new
-    @team = Team.new
-  end
-
-  def create
-    @team = Team.create!(team_params)
-    if @team.save
-      redirect_to @team, notice: "well done"
-    else
-      render :new, notice: "did not work"
-    end
+    @teams = @hunts.teams
   end
 
   def show
@@ -23,6 +11,10 @@ class TeamsController < ApplicationController
 
 
   private
+
+  def set_hunt
+    @hunt = Hunt.find(params[:hunt_id])
+  end
 
   def team_params
     params.require(:team).permit(:path, :team_number, :hunt_id)
