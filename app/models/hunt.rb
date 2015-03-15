@@ -8,11 +8,12 @@ class Hunt < ActiveRecord::Base
 
   def make_teams(number_of_teams)
     number_of_teams.times do |i|
-      teams.create(team_number: i,
-                  path: generate_team_path)
+      teams.create(
+        team_number: i,
+        path: generate_team_path
+      )
     end
   end
-
 
   private
 
