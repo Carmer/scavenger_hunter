@@ -1,11 +1,15 @@
 <h3>Welcome to Scavenger Hunter</h3>
 
-
 <% unless current_user %>
-  <p><%= link_to "Sign Up", new_user_registration_path %> to create your first hunt!</p>
-  <p>Already a user? <%= link_to "Sign in", user_session_path %>.</p>
+  <p>Create your own custom scavenger hunts! Send teams of hunters into the wild to follow your unique clues!</p>
+  <p><strong>What are you waiting for?</strong></p>
+  <p class="big-orange-button"><%= link_to "Sign Up", new_user_registration_path %> to create your first hunt!</p>
+  <p class="note">Already a user? <%= link_to "Sign in", user_session_path %>.</p>
 <% end %>
 
 <% if current_user %>
-  <%= link_to "Create a new hunt", new_hunt_path %>
+  <p>It's time to start the fun! Have your locations and teams ready? Let's do this!</p>
+  <p class="big-orange-button"><%= link_to "Create a new hunt", new_hunt_path %></p>
+  <p>or</p>
+  <p class="note"><%= link_to "View all locations", locations_path %> | <%= link_to "View all hunts", hunts_path %></p>
 <% end %>

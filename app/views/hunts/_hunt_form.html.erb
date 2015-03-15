@@ -12,14 +12,16 @@
 
     <p>All fields are required</p>
 
-    <p><%= label_tag :name, 'Name' %></br>
+    <p><%= label_tag :name, 'Hunt Name' %></br>
     <%= f.text_field :name %></p>
+
+    <p class="note">Please select your master path. Varying routes along this path will be generated for your teams.<br>
+      <em><strong>Important: you must select from existing locations.</strong> Go <%= link_to "here first", new_location_path %> if you need to add a new location!</em><p>
+    <p><%= label_tag :master_path, 'Master Path' %></p>
+    <p>1 <%= select_tag 'hunt[master_path][]', options_for_select(@locations.map { |location| [location.name, location.id]}), include_blank: true %></p>
+    <p>2 <%= select_tag 'hunt[master_path][]', options_for_select(@locations.map { |location| [location.name, location.id]}), include_blank: true %></p>
+    <p>3 <%= select_tag 'hunt[master_path][]', options_for_select(@locations.map { |location| [location.name, location.id]}), include_blank: true %></p>
     <p>Select a Number of teams: <%= select_tag :number_of_teams, options_for_select(1..15) %></p>
-    <p><%= label_tag :master_path, 'Clue' %></br>
-    <p><small>Please select your path.</small><br>
-    <p>1<%= select_tag 'hunt[master_path][]', options_for_select(@locations.map { |location| [location.name, location.id]}) %></p>
-    <p>2<%= select_tag 'hunt[master_path][]', options_for_select(@locations.map { |location| [location.name, location.id]}) %></p>
-    <p>3<%= select_tag 'hunt[master_path][]', options_for_select(@locations.map { |location| [location.name, location.id]}) %></p>
 
     <button type="submit">Submit</button>
 <% end %>
