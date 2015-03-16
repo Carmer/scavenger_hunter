@@ -4,5 +4,4 @@ FactoryGirl.define do
     team_number 1
     hunt_id 1
   end
-
 end
