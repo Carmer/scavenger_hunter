@@ -11,3 +11,12 @@
 /log/*
 !/log/.keep
 /tmp
+
+tmp/*
+log/*
+.DS_STORE
+coverage
+.env
+scratch
+public/assets
+.rspec

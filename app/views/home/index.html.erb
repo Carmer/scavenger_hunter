@@ -1,6 +1,15 @@
 <h3>Welcome to Scavenger Hunter</h3>
-  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas elementum pharetra libero id sodales. Praesent commodo gravida turpis, vel faucibus nisl efficitur ac. Sed sagittis sem at nibh ultrices, blandit ullamcorper justo ultricies. Mauris facilisis venenatis eros. Proin ut lacus a ex mattis convallis. Nullam tristique leo sit amet convallis venenatis. Sed ac efficitur magna. Curabitur malesuada tortor ac tincidunt rhoncus. Suspendisse aliquam, mi in pellentesque accumsan, nisl sem ultricies massa, et fermentum nisl justo interdum leo. Suspendisse iaculis hendrerit nunc a cursus. Proin at nisl malesuada sapien varius vestibulum.</p>
 
-  <p>Vestibulum volutpat dictum mollis. Nam mattis diam non ligula sagittis aliquam. Mauris nisi quam, posuere bibendum malesuada eu, porttitor at odio. Nulla blandit luctus tortor, ut imperdiet nisl fermentum ornare. In hac habitasse platea dictumst. Aliquam congue pellentesque erat, nec bibendum sapien porta a. Fusce at porttitor mauris. Proin finibus ligula ac nibh fringilla pellentesque. Nunc rhoncus ipsum a semper ornare. Sed ac malesuada ipsum.</p>
+<% unless current_user %>
+  <p>Create your own custom scavenger hunts! Send teams of hunters into the wild to follow your unique clues!</p>
+  <p><strong>What are you waiting for?</strong></p>
+  <p class="big-orange-button"><%= link_to "Sign Up", new_user_registration_path %> to create your first hunt!</p>
+  <p class="note">Already a user? <%= link_to "Sign in", user_session_path %>.</p>
+<% end %>
 
-  <p>Proin vel libero a libero suscipit blandit. Nunc egestas sit amet tellus a efficitur. Etiam dapibus nulla sit amet mauris ornare maximus. Quisque aliquam tristique purus a euismod. Ut nunc dolor, egestas ac velit a, convallis gravida ex. Curabitur semper a mauris viverra viverra. Duis ornare elit aliquam dui bibendum, non suscipit ligula tincidunt. Ut id lorem ligula. Morbi pellentesque est sit amet turpis egestas, eget congue lorem ultrices. Pellentesque ipsum felis, tincidunt vel leo quis, maximus dapibus mauris. Quisque faucibus luctus urna, a vestibulum elit gravida non. Etiam et mi nunc. Mauris mauris neque, tempor ut felis quis, pulvinar dictum lorem. Maecenas ac urna vel eros lacinia pretium.</p>
+<% if current_user %>
+  <p>It's time to start the fun! Have your locations and teams ready? Let's do this!</p>
+  <p class="big-orange-button"><%= link_to "Create a new hunt", new_hunt_path %></p>
+  <p>or</p>
+  <p class="note"><%= link_to "View all locations", locations_path %> | <%= link_to "View all hunts", hunts_path %></p>
+<% end %>
