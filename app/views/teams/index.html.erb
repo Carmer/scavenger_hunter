@@ -1,12 +1,15 @@
-<% if @teams.empty? %>
-  <h1>Ain't got no Teams, Dude.</h1>
-  <h1>Just gotta Deal I guess</h1>
-<% else %>
-  <h2>Teams:</h2>
-
-  <% @teams.each do |team| %>
-    <p>Team Number: <%= link_to "#{team.team_number}", hunt_team_path(id: team, hunt_id: params[:hunt_id]) %></p>
-    <p>Path: <%= team.path %></p>
-    <p>Hunt ID: <%= team.hunt_id %></p>
-  <% end %>
-<% end %>
+<div class="container">
+  <div class="row" id="teams">
+    <div class="small-12 columns text-center">
+      <% if @teams.empty? %>
+        <h1>Ain't got no teams, dude.</h1>
+        <h1>Just gotta deal I guess</h1>
+      <% else %>
+        <h2>Teams:</h2>
+        <% @teams.each do |team| %>
+          <%= link_to "Team #{team.team_number}", hunt_team_path(id: team, hunt_id: params[:hunt_id]), class: "button expand round" %>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+</div>

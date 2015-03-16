@@ -2,7 +2,7 @@ class TeamsController < ApplicationController
   before_action :set_hunt
 
   def index
-    @teams = @hunts.teams
+    @teams = @hunt.teams
   end
 
   def show
