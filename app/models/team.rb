@@ -4,9 +4,4 @@ class Team < ActiveRecord::Base
   def current_location
     Location.find(path.first)
   end
-
-  def complete_location
-    
-  end
-
 end
