@@ -49,6 +49,12 @@ header {
   box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
 }
 
+#teams {
+    background: #fff;
+    border: 2px solid #FF1A14;
+    border-radius: 5px;
+}
+
 footer {
   background: #0381e8;
 }

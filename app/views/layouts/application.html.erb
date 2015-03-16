@@ -10,9 +10,11 @@
 </head>
 <body>
   <div class="nav"><%= render partial: "shared/nav" %></div>
+  <% unless hunt_teams_path %>
   <div class="header"><%= render partial: "shared/header" %></div>
   <div class="main">
     <div class="content">
+  <% end %>
 <%= yield %>
 
 </body>
