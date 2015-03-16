@@ -1,5 +1,10 @@
 require 'rails_helper'
 
 RSpec.describe Hunt, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+  describe "Locations" do
+    it "can find it's locations using the master path" do
+      hunt = create(:hunt, master_path: [1, 2, 3])
+
+    end
+  end
 end
