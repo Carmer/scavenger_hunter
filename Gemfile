@@ -14,7 +14,6 @@ gem 'dotenv-rails'
 gem 'pry-rails'
 gem 'devise'
 gem 'geocoder'
-gem 'foundation-rails'
 
 
 group :development, :test do
