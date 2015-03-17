@@ -11,11 +11,23 @@ class TeamsController < ApplicationController
   end
 
   def update
-    binding.pry
+    if @team.check_distance_to_location(latitude, longitude)
+      redirect_to hunt_team_path(hunt_id: @hunt.id, id: @team)
+    else
+      redirect_to hunt_team_path(hunt_id: @hunt.id, id: @team)
+    end
   end
 
 
   private
+
+  def latitude
+    params['team']['latitude']
+  end
+
+  def longitude
+    params['team']['longitude']
+  end
 
   def set_hunt
     @hunt = Hunt.find(params[:hunt_id])

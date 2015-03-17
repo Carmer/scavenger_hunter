@@ -4,7 +4,7 @@ $(document).ready(function() {
 
 function mapCurrentLocation() {
   console.log("this is hit 3")
-  navigator.geolocation.getCurrentPosition(function(position) {
+  navigator.geolocation.getCurrentPosition(function(position)  {
 
     var team_latitude = position.coords.latitude.toFixed(6);
     var team_longitude = position.coords.longitude.toFixed(6);
@@ -17,5 +17,5 @@ function mapCurrentLocation() {
   function(PositionError) {
   console.log("this is hit 4");
     console.log(PositionError)
-  });
+  }, { enableHighAccuracy: true });
 }

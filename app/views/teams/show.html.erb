@@ -11,5 +11,5 @@
 <%= form_for @team, url: "#{hunt_team_path(hunt_id: @hunt.id, id: @team.id)}" do |f|%>
   <input id="latitude" name="team[latitude]" type="hidden" />
   <input id="longitude" name="team[longitude]" type="hidden" />
-  <%= f.submit %>
+  <%= f.submit value="We're Here!"%>
 <% end %>
