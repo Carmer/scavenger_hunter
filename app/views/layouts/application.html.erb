@@ -3,6 +3,7 @@
 <head>
   <title>ScavengerHunter</title>
   <%= stylesheet_link_tag    'application', media: 'all' %>
+  <%= stylesheet_link_tag 'mobile' if mobile_device? %>
   <%= javascript_include_tag 'application' %>
   <%= csrf_meta_tags %>
   <link href='http://fonts.googleapis.com/css?family=Orbitron:400,500' rel='stylesheet' type='text/css'>
@@ -14,6 +15,14 @@
     <div class="main">
     <div class="content">
 <%= yield %>
+
+<p class="note">
+  <% if mobile_device? %>
+    <%= link_to "Full Site", :mobile => 0 %>
+  <% else %>
+    <%= link_to "Mobile Site", :mobile => 1 %>
+  <% end %>
+</p>
 
 </body>
 </html>
