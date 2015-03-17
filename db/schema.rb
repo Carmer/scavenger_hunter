@@ -35,8 +35,8 @@ ActiveRecord::Schema.define(version: 20150311204035) do
   end
 
   create_table "teams", force: :cascade do |t|
-    t.datetime "created_at",               null: false
-    t.datetime "updated_at",               null: false
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
     t.text     "path",        default: [],              array: true
     t.integer  "team_number"
     t.integer  "hunt_id"
