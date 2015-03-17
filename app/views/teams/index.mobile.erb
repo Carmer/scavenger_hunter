@@ -1,0 +1,8 @@
+<% title "Teams" %>
+
+<ul>
+  <% for team in @teams %>
+      <%= link_to h(team.number), team %>
+  <% end %>
+
+<p class="note"><%= link_to "Team #{team.team_number}", hunt_team_path(id: team, hunt_id: params[:hunt_id]) %></p>
