@@ -2,6 +2,7 @@ require 'simplecov'
 SimpleCov.start do
   add_filter "/spec/"
 end
+require 'factory_girl_rails'
 
 RSpec.configure do |config|
   config.include FactoryGirl::Syntax::Methods
