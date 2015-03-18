@@ -4,6 +4,6 @@
     <p>Just gotta deal I guess</p>
   <% else %>
     <% @teams.each do |team| %>
+    <p class="note"><%= link_to "Team #{team.team_number}", hunt_team_path(id: team, hunt_id: params[:hunt_id]) %></p>
     <% end %>
   <% end %>
-  <p class="note"><%= link_to "Team #{team.team_number}", hunt_team_path(id: team, hunt_id: params[:hunt_id]) %></p>
