@@ -18,7 +18,7 @@ class Team < ActiveRecord::Base
     update_attributes(path: path[1..-1])
   end
 
-  def hunt_over?
+  def path_completed?
     path.empty?
   end
 end

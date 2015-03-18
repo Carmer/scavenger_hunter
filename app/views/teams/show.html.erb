@@ -9,8 +9,8 @@
 <% else %>
   <h1>Team <%= @team.team_number%></h1>
 
-  <% if hunt_over? %>
-    <%= render partial: "hunt_over" %>
+  <% if path_completed? %>
+    <%= render partial: "path_over" %>
   <% else %>
     <h3>Location Clue:</h3>
     <p><%= @team.current_location.clue %></p>
