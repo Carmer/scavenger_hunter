@@ -17,4 +17,8 @@ class Team < ActiveRecord::Base
   def complete_current_location
     update_attributes(path: path[1..-1])
   end
+
+  def hunt_over?
+    path.empty?
+  end
 end
