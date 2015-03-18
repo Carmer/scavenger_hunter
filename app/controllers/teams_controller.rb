@@ -15,6 +15,7 @@ class TeamsController < ApplicationController
       redirect_to hunt_team_path(hunt_id: @hunt.id, id: @team)
     else
       redirect_to hunt_team_path(hunt_id: @hunt.id, id: @team)
+      flash[:notice] =  "Sorry, doesn't look like you found it yet!"
     end
   end
 

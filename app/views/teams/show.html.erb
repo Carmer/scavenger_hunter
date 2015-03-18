@@ -6,10 +6,22 @@
   <p>Hunt ID: <%= @team.hunt_id %></p>
 
   <%= link_to "Teams Index", hunt_teams_path %>
+<% else %>
+  <h1>Team <%= @team.team_number%></h1>
+
+  <% if path_completed? %>
+    <%= render partial: "path_over" %>
+  <% else %>
+    <h3>Location Clue:</h3>
+    <p><%= @team.current_location.clue %></p>
+    <%= form_for @team, url: "#{hunt_team_path(hunt_id: @hunt.id, id: @team.id)}" do |f|%>
+      <input id="latitude" name="team[latitude]" type="hidden" />
+      <input id="longitude" name="team[longitude]" type="hidden" />
+      <% flash.each do |name, msg| %>
+        <%= content_tag :div, msg, class: "flash-alert" %>
+      <% end %>
+      <h3><%= f.submit "We're Here!", class: "small-orange-button" %></h3>
+    <% end %>
+  <% end %>
 <% end %>
 
-<%= form_for @team, url: "#{hunt_team_path(hunt_id: @hunt.id, id: @team.id)}" do |f|%>
-  <input id="latitude" name="team[latitude]" type="hidden" />
-  <input id="longitude" name="team[longitude]" type="hidden" />
-  <%= f.submit value="We're Here!"%>
-<% end %>
