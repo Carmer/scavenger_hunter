@@ -3,7 +3,7 @@ class HuntsController < ApplicationController
 
 
   def index
-    @hunts = current_user.hunts
+    @hunts = current_user.hunts rescue Hunt.active
   end
 
   def new
@@ -11,9 +11,16 @@ class HuntsController < ApplicationController
     @locations = current_user.locations
   end
 
+  def show
+    redirect_to @hunt.teams unless current_user
+  end
+
   def create
-    if create_with_teams
+    @hunt = current_user.hunts.new(hunt_params)
+    if @hunt.save
       redirect_to hunt_path(@hunt), notice: "well done"
+    else
+      render :new, notice: "hunt could not be created"
     end
   end
 
@@ -38,13 +45,6 @@ class HuntsController < ApplicationController
   end
 
   private
-
-  def create_with_teams
-    Hunt.transaction do
-      @hunt = current_user.hunts.create(hunt_params)
-      @hunt.make_teams(params[:number_of_teams].to_i)
-    end
-  end
 
   def set_hunt
     @hunt = Hunt.find(params[:id])

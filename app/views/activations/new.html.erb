@@ -1,0 +1,15 @@
+<%= form_for @hunt, url: "/hunts/#{@hunt.id}/activations", method: :post do |f| %>
+  <% if @hunt.errors.any? %>
+    <div id="errors">
+      <h2><%= pluralize(@hunt.errors.count, 'error') %> occurred:</h2>
+        <ul>
+          <% @hunt.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+<p>Select a Number of teams: <%= select_tag :number_of_teams, options_for_select(1..15) %></p>
+
+<button type="submit">Activate!</button>
+<% end %>

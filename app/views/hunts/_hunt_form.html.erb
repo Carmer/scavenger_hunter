@@ -21,7 +21,6 @@
     <p>1 <%= select_tag 'hunt[master_path][]', options_for_select(@locations.map { |location| [location.name, location.id]}), include_blank: true %></p>
     <p>2 <%= select_tag 'hunt[master_path][]', options_for_select(@locations.map { |location| [location.name, location.id]}), include_blank: true %></p>
     <p>3 <%= select_tag 'hunt[master_path][]', options_for_select(@locations.map { |location| [location.name, location.id]}), include_blank: true %></p>
-    <p>Select a Number of teams: <%= select_tag :number_of_teams, options_for_select(1..15) %></p>
 
     <button type="submit">Submit</button>
 <% end %>
