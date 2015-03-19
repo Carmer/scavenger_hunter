@@ -19,11 +19,8 @@
     <p><small>Please enter a short clue for this location.</small><br>
     <%= f.text_area :clue %></p>
 
-    <p><%= label_tag :latitude, 'Latitude' %></br>
-    <%= f.text_field :latitude %></p>
-
-    <p><%= label_tag :longitude, 'Longitude' %></br>
-    <%= f.text_field :longitude %></p>
+    <p><%= label_tag :address, 'Address' %></br>
+    <%= f.text_field :address %></p>
 
     <button type="submit">Submit</button>
 <% end %>
