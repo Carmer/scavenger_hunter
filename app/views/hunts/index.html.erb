@@ -7,6 +7,11 @@
     <%= link_to "#{location.name}", location_path(location) %> |
   <% end %></p>
   <p class="note">
+  <% if hunt.active? %>
+    <%= link_to "Deactivate", hunt_activation_path(id: hunt.id, hunt_id: hunt.id), method: :delete %> |
+  <% else %>
+    <%= link_to "Activate", new_hunt_activation_path(hunt_id: hunt.id) %> |
+  <% end %>
   <%= link_to "Edit", edit_hunt_path(hunt) %> |
   <%= link_to "Delete", hunt_path(hunt), method: :delete %></p>
   </div>

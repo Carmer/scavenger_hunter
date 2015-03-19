@@ -15,6 +15,22 @@ class Hunt < ActiveRecord::Base
     end
   end
 
+  def activate(number_of_teams)
+    make_teams(number_of_teams)
+  end
+
+  def active?
+    !teams.empty?
+  end
+
+  def deactivate
+    teams.destroy_all
+  end
+
+  def self.active
+    find Team.pluck('DISTINCT hunt_id')
+  end
+
   private
 
   def generate_team_path

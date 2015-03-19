@@ -4,6 +4,9 @@ Rails.application.routes.draw do
 
   resources :locations
   resources :hunts do
+    resources :activations, only: [:new, :create, :destroy],
+                            path_names: { new: 'activate', destroy: 'deactivate'}
     resources :teams
   end
+
 end
