@@ -1,7 +1,5 @@
 require 'simplecov'
-SimpleCov.start do
-  add_filter "/spec/"
-end
+SimpleCov.start "rails"
 require 'factory_girl_rails'
 
 RSpec.configure do |config|
