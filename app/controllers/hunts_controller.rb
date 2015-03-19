@@ -12,7 +12,7 @@ class HuntsController < ApplicationController
   end
 
   def show
-    redirect_to @hunt.teams unless current_user
+    redirect_to hunt_teams_path(hunt_id: @hunt.id) unless current_user
   end
 
   def create

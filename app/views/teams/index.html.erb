@@ -4,6 +4,14 @@
     <p>Just gotta deal I guess</p>
   <% else %>
     <% @teams.each do |team| %>
-    <p class="note"><%= link_to "Team #{team.team_number}", hunt_team_path(id: team, hunt_id: params[:hunt_id]) %></p>
+      <p class="note"><%= link_to "Team #{team.team_number}", hunt_team_path(id: team, hunt_id: params[:hunt_id]) %></p>
+      <% if current_user %>
+        <% if team.path_completed? %>
+          <p>This team has finished their hunt!</p>
+        <% else %>
+          <p>Locations remaining: <strong><%= team.path.length %></strong></p>
+          <p>Current location: <%= team.current_location.name %></p>
+        <% end %>
+      <% end %>
     <% end %>
   <% end %>

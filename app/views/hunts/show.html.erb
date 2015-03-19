@@ -6,7 +6,16 @@
 <% end %>
 
 <p class="note">
+<% if @hunt.active? %>
+  <%= link_to "Deactivate", hunt_activation_path(id: @hunt.id, hunt_id: @hunt.id), method: :delete %> |
+<% else %>
+  <%= link_to "Activate", new_hunt_activation_path(hunt_id: @hunt.id) %> |
+<% end %>
 <%= link_to "Edit", edit_hunt_path %> |
 <%= link_to "Delete", hunt_path, method: :delete %> |
 <%= link_to "All locations", locations_path %> |
-<%= link_to "All hunts", hunts_path %></p>
+<%= link_to "All hunts", hunts_path %> |
+<% if @hunt.active? %>
+  <%= link_to "Teams", hunt_teams_path(hunt_id: @hunt) %>
+<% end %>
+</p>
