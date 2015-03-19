@@ -20,8 +20,4 @@ private
     request.format = :mobile if mobile_device?
   end
 
-layout :which_layout
-  def which_layout
-    mobile_device? ? 'mobile' : 'application'
-  end
 end

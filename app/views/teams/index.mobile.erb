@@ -1,8 +1,23 @@
-<% title "Teams" %>
-
-<ul>
-  <% for team in @teams %>
-      <%= link_to h(team.number), team %>
-  <% end %>
-
-<p class="note"><%= link_to "Team #{team.team_number}", hunt_team_path(id: team, hunt_id: params[:hunt_id]) %></p>
+<div style="background:#1235b7;padding:10px;margin:-10px;height:100%;">
+  <img src="/assets/logo.png" style="margin:40px 40px 0 40px;">
+  <div style="border-top:10px solid red;">
+    <div style="border-radius:10px;width:60%;margin:100px auto;height:50%;">
+      <div style="text-transform:uppercase;text-align:center;padding-top:50px;color:#fff;font-family:'Ubuntu',sans-serif;">
+        <p style="margin:50px;font-size:4em;">Teams</p>
+        <p style="margin:50px;font-size:3em;">Select your assigned team:</p>
+      </div>
+      <center>
+        <% if @teams.empty? %>
+          <h3>Ain't got no teams, dude.</h3>
+          <p>Just gotta deal I guess</p>
+        <% else %>
+          <% @teams.each do |team| %>
+          <p><%= link_to "Team #{team.team_number}", hunt_team_path(id: team, hunt_id: params[:hunt_id]), {:style=>'margin:0 auto;border-radius:25px;background:#FF980D;padding:30px;font-size:2em;text-align:center;text-transform:uppercase;text-decoration:none;font-family:"Ubuntu",sans-serif;line-height:100px;'} %></p>
+        <% end %>
+      <% end %>
+      </center>
+      <div style="width:50%;margin:50px auto;text-align:center;"><%= link_to "Home", root_path, {:style=>'color:fff;text-decoration:none;font-size:2em;'} %>
+      </div>
+    </div>
+  </div>
+</div>
