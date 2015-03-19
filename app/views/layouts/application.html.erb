@@ -16,6 +16,14 @@
     <div class="content">
 <%= yield %>
 
+<% unless flash.empty? %>
+  <div class="info">
+  <%- flash.each do |name, msg| -%>
+    <%= content_tag :div, msg, :id => "flash_#{name}" %>
+  <%- end -%>
+  </div>
+<% end %>
+
 <p class="note">
   <% if mobile_device? %>
     <%= link_to "Full Site", :mobile => 0 %>
