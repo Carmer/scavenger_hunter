@@ -2,10 +2,10 @@
   <h2>Team Information:</h2>
 
   <p>Team Number: <%= @team.team_number %></p>
-  <p>Path: <%= @team.path %></p>
-  <p>Hunt ID: <%= @team.hunt_id %></p>
+  <p>Current_location: <%= @team.current_location.name %></p>
+  <p>Hunt: <%= @team.hunt.name %></p>
 
-  <%= link_to "Teams Index", hunt_teams_path %>
+  <p class="note"><%= link_to "Teams Index", hunt_teams_path %></p>
 <% else %>
   <h1>Team <%= @team.team_number%></h1>
 
