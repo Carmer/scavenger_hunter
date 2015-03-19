@@ -4,14 +4,26 @@
     <div style="border-radius:10px;width:60%;margin:100px auto;height:50%;">
       <div style="text-transform:uppercase;text-align:center;padding-top:50px;color:#fff;font-family:'Ubuntu',sans-serif;">
         <p style="margin:50px;font-size:4em;">Teams Information:</p>
-        <p style="margin:50px;font-size:3em;">Team Number: <%= @team.team_number %></p>
-        <p style="margin:50px;font-size:3em;">Clue?:</p>
+        <p style="margin:50px;font-size:2em;">Team Number: <%= @team.team_number %></p>
+        <% if path_completed? %>
+          <%= render partial: "path_over" %>
+          <% else %>
+          <p style="margin:50px;font-size:3em;">Location Clue:</p>
+          <p style="margin:50px;font-size:3em;"><%= @team.current_location.clue %></p>
       </div>
       <center>
         <%= form_for @team, url: "#{hunt_team_path(hunt_id: @hunt.id, id: @team.id)}" do |f|%>
           <input id="latitude" name="team[latitude]" type="hidden" />
           <input id="longitude" name="team[longitude]" type="hidden" />
+          <% flash.each do |name, msg| %>
+            <div style="background:#FF1A14;padding:20px;font-size:2em;text-align:center;text-transform:uppercase;text-decoration:none;font-family:'Ubuntu',sans-serif;color:#fff;"}
+              <%= content_tag :div, msg, class: "flash-alert" %>
+              </div>
+            <% end %>
+          </center>
+          <center>
           <p><%= f.submit value="We're Here!", {:style=>'width:50%;margin:0 auto;border-radius:25px;background:#FF980D;padding:30px;font-size:2em;text-align:center;text-transform:uppercase;text-decoration:none;font-family:"Ubuntu",sans-serif;color:#fff;'} %>
+        <% end %>
         <% end %>
       </center>
       <div style="width:50%;margin:50px auto;text-align:center;"><%= link_to "Home", root_path, {:style=>'color:fff;text-decoration:none;font-size:2em;'} %>
