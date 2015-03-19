@@ -12,6 +12,7 @@ class LocationsController < ApplicationController
   def create
     @location = current_user.locations.new(location_params)
     if @location.save
+      @location.update_coordinates_from_address
       redirect_to @location, notice: "Location created."
     else
       render :new, notice: "Location not created. Try again."
@@ -26,6 +27,7 @@ class LocationsController < ApplicationController
 
   def update
     if @location.update_attributes(location_params)
+      @location.update_coordinates_from_address
       redirect_to @location
     else
       render :edit, notice: "Location could not be updated. Try again."
@@ -43,7 +45,7 @@ class LocationsController < ApplicationController
   private
 
   def location_params
-    params.require(:location).permit(:name, :clue, :latitude, :longitude)
+    params.require(:location).permit(:name, :clue, :address)
   end
 
   def set_location
