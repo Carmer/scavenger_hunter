@@ -17,10 +17,12 @@
 
     <p class="note">Please select your master path. Varying routes along this path will be generated for your teams.<br>
       <em><strong>Important: you must select from existing locations.</strong> Go <%= link_to "here first", new_location_path %> if you need to add a new location!</em><p>
-    <p><%= label_tag :master_path, 'Master Path' %></p>
-    <p>1 <%= select_tag 'hunt[master_path][]', options_for_select(@locations.map { |location| [location.name, location.id]}), include_blank: true %></p>
-    <p>2 <%= select_tag 'hunt[master_path][]', options_for_select(@locations.map { |location| [location.name, location.id]}), include_blank: true %></p>
-    <p>3 <%= select_tag 'hunt[master_path][]', options_for_select(@locations.map { |location| [location.name, location.id]}), include_blank: true %></p>
+    <div id="location-fields">
+      <p><%= label_tag :master_path, 'Master Path' %></p>
+      <p class="location"><%= select_tag 'hunt[master_path][]', options_for_select(@locations.map { |location| [location.name, location.id]}), include_blank: true %></p>
+    </div>
+    <p><%= link_to "Add", "javascript:;", id: "add-location" %> | 
+    <%= link_to "Remove", "javascript:;", id: "remove-location" %> </p>
 
     <button type="submit">Submit</button>
 <% end %>
