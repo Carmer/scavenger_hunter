@@ -14,8 +14,6 @@
     <div class="header"><%= render partial: "shared/header" %></div>
     <div class="main">
     <div class="content">
-<%= yield %>
-
 <% unless flash.empty? %>
   <div class="info">
   <%- flash.each do |name, msg| -%>
@@ -23,6 +21,8 @@
   <%- end -%>
   </div>
 <% end %>
+<%= yield %>
+
 
 <p class="note">
   <% if mobile_device? %>

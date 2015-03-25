@@ -20,7 +20,7 @@ class HuntsController < ApplicationController
     if @hunt.save
       redirect_to hunt_path(@hunt), notice: "well done"
     else
-      render :new, notice: "hunt could not be created"
+      redirect_to new_hunt_path, notice: "Hunt could not be created; try again."
     end
   end
 
