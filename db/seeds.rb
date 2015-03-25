@@ -18,30 +18,34 @@ class Seed
   end
 
   def create_locations
-    Location.create(
+    Location.create!(
       name: "My Brother's Bar",
       clue: "It's a famous bar. Owned by my brother.",
+      address: '2376 15th St, Denver, CO',
       latitude: 39.756197,
       longitude: -105.009299
     )
 
-    Location.create(
+    Location.create!(
       name: "The Big Blue Bear",
       clue: "It's a bear. It's blue. It's big.",
+      address: "700 14th St, Denver, CO",
       latitude: 39.7439769,
       longitude: -104.9954394
     )
 
-    Location.create(
+    Location.create!(
       name: "Denver Art Museum",
       clue: "It's a museum. It's got art. It's in Denver.",
+      address: "100 W 14th Avenue pkwy, Denver, CO",
       latitude: 39.737188,
       longitude: -104.989345
     )
 
-    Location.create(
+    Location.create!(
       name: "Denver Capitol Building",
       clue: "It's a building. It's capitol. It's in Denver.",
+      address: "200 East Colfax Ave, Denver CO",
       latitude: 39.739325,
       longitude: -104.984807
     )
@@ -50,7 +54,7 @@ class Seed
   end
 
   def create_hunt
-    @hunt = Hunt.create(
+    @hunt = Hunt.create!(
       user_id: user,
       master_path: [1, 2, 3, 4],
       name: "The coolest hunt ever!"
