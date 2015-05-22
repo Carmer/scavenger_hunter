@@ -1,18 +1,19 @@
-<div style="background:#1235b7;padding:10px;margin:-10px;height:100%;">
+<!-- <div style="background:#1235b7;padding:10px;margin:-10px;height:100%;">
   <img src="/assets/logo.png" style="margin:40px 40px 0 40px;">
   <div style="border-top:10px solid red;">
     <div style="text-transform:uppercase;text-align:center;padding-top:50px;margin:100px 50px;">
     <div style="text-transform:uppercase;text-align:center;padding-top:50px;">
       <p style="margin:50px;font-size:4em;color:#fff;font-family:'Ubuntu',sans-serif;">Active Hunts</p>
       <p style="margin:50px;font-size:3em;color:#fff;font-family:'Ubuntu',sans-serif;">Select the hunt you wish to join:</p>
-  </div>
+  </div> -->
       <center>
       <% @hunts.each do |hunt| %>
-        <%= link_to "#{hunt.name.titleize}", hunt_teams_path(hunt), {:style=>'margin:0 auto;border-radius:25px;background:#FF980D;padding:30px;font-size:1.5em;text-align:center;text-transform:uppercase;text-decoration:none;font-family:"Ubuntu",sans-serif;'} %>
+        <%= link_to "#{hunt.name.titleize}", hunt_teams_path(hunt) %>
         <% end %>
       </center>
-      <div style="width:50%;margin:50px auto;text-align:center;"><%= link_to "Home", root_path, {:style=>'color:fff;text-decoration:none;font-size:2em;'} %>
+      <div>
+        <%= link_to "Home", root_path %>
       </div>
-    </div>
+    <!-- </div>
   </div>
-</div>
+</div> -->

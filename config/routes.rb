@@ -8,5 +8,4 @@ Rails.application.routes.draw do
                             path_names: { new: 'activate', destroy: 'deactivate'}
     resources :teams
   end
-
 end
